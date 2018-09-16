@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>个人信息页</title>
+		<link rel="stylesheet" href="css/classwork.css" />
+		<script type="text/javascript" src="js/classwork.js" >
+		</script>
+		<script>
+			window.onload=function(){
+				var re=/[0-9]+/
+				var email=document.getElementById('email');
+				var list=document.getElementById('emailList');
+				email.onkeyup=function(){
+					if(re.test(email.value)){
+						for(var i=0;i<5;i++){
+							list.children[i].value=list.children[i].value.replace(/\d+/,email.value);
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h2>请填写个人信息</h2>
+		<form id="workform" action="#" method="get">
+			<fieldset>
+				<legend>
+					基本信息
+				</legend>
+				姓名 <input type="text" name="name1" required="required"/>&nbsp;<b>*</b> <br />
+				年龄	<input type="text" name="age1" value="20"/>		
+			</fieldset>
+			<br /><br />
+			
+			<fieldset>
+				<legend>
+					你想在哪里收到邮件？
+				</legend>		
+				邮箱
+				<input type="email" id='email'  placeholder="请输入邮箱" 
+					autocomplete="on"  list='emailList' results><b>*</b>
+				<datalist id="emailList">
+					<option>123@qq.com</option>
+					<option>123@163.com</option>
+					<option>123@gmail.com</option>
+					<option>123@yahoo.com.cn</option>
+					<option>123@126.com</option>
+				</datalist>
+			</fieldset>
+			<br /><br />
+			<fieldset>
+				<legend>
+					收入情况
+				</legend>
+				月收入
+				<select>
+					<option>20k+</option>
+					<option>30k+</option>
+					<option>40k+</option>
+				</select><br />
+				银行卡<input type="text" name="card1"/>
+				有效期<input type="date" name="date1"/>
+			</fieldset>
+			<br /><br />
+			<fieldset>
+				<legend>
+					选择提交文件
+				</legend>
+				文件<input type="file" name="file1"/>
+			</fieldset>
+			<br /><br />
+			<input type="submit"/>
+		</form>
+	</body>
+</html>
