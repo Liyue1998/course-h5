@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>读取图片</title>
+		<link rel="stylesheet" href="css/文件与拖放.css" />
+	</head>
+	<body>
+		<h1>上传头像</h1>
+ 		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+ 		<script>
+			var res = document.getElementById('div1');
+			function allowDrop(ev){
+ 				ev.preventDefault();
+			}
+			function drop(ev){  //ondrop事件，有其他元素被拖放到了本元素中，将外来元素放到本元素中
+ 				ev.preventDefault();
+ 				var file = ev.dataTransfer.files[0];  //获取到第一个上传的文件对象
+ 				var reader = new FileReader();
+ 				reader.readAsDataURL(file);
+ 				reader.onload = function (ev){
+  					res.innerHTML+='<img src="'+this.result+'" alt=""/>';
+ 				}
+			}
+		</script>
+	</body>
+</html>
