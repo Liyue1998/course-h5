@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>画布canvas</title>
+		<style>
+			#canvas1,#canvas2,#canvas3,#canvas5{
+				border-style: solid;
+				border-color: peachpuff;
+			}
+			#canvas4{
+				border-style: solid;
+				border-color: peachpuff;
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas1" width="300" height="300">
+			您的浏览器不支持 canvas 元素，请更换或更新浏览器
+		</canvas>
+		<canvas id="canvas2" width="1200" height="300">
+			您的浏览器不支持 canvas 元素，请更换或更新浏览器
+		</canvas>
+		<canvas id="canvas3" width="400" height="400">
+			您的浏览器不支持 canvas 元素，请更换或更新浏览器
+		</canvas>
+		<canvas id="canvas4" width="400" height="400">
+			您的浏览器不支持 canvas 元素，请更换或更新浏览器
+		</canvas>
+		<canvas id="canvas5" width="400" height="400">
+			您的浏览器不支持 canvas 元素，请更换或更新浏览器
+		</canvas>
+	</body>
+	<script>
+		var elem=document.getElementById("canvas1");
+		var context=elem.getContext("2d");
+		var elem2=document.getElementById("canvas2");
+		var context2=elem2.getContext("2d");
+		var elem3=document.getElementById("canvas3");
+		var context3=elem3.getContext("2d");
+		var elem4=document.getElementById("canvas4");
+		var context4=elem4.getContext("2d");
+		var elem5=document.getElementById("canvas5");
+		var context5=elem5.getContext("2d");
+		
+		//三角形
+		context.moveTo(10,20);
+		context.lineTo(10,200);
+		context.lineTo(100,200);
+		context.lineTo(10,20);
+		context.lineWidth=3;//边框宽度
+		context.strokeStyle="cornflowerblue";//边框颜色
+//		context.fillStyle="red";//填充颜色
+//		context.fill();//填充
+		context.stroke();//描边
+		context.beginPath();
+		context.moveTo(30,20);
+		context.lineTo(120,200);
+		context.strokeStyle="red";
+		context.stroke();
+		context.closePath();
+		
+		
+		
+		////绘制弧和圆
+    	//半圆
+//		context2.beginPath();
+//		context2.arc(300,300,200,0,1*Math.PI,true);
+//		context2.lineWidth=3;
+//		context2.strokeStyle="cornflowerblue";
+//		context2.closePath();
+//		context2.stroke();
+		
+		//多段弧线
+		for(var i=0;i<10;i++){
+			context2.beginPath();
+			context2.arc(50+100*i,60,40,0,2*Math.PI*(i+1)/10,false);
+			context2.closePath();
+			context2.stroke();
+		}
+
+		//同心圆
+		for(var i=0;i<9;i++){
+			context3.strokeStyle="cornflowerblue";
+			context3.beginPath();
+			context3.arc(0,400,i*50,0,1.5*Math.PI,true);
+			context3.stroke();
+		}
+		
+		//太极八卦
+		//白色半圆
+		
+		context4.beginPath();
+		context4.arc(200,200,80,1.5*Math.PI,0.5*Math.PI,false);
+		context4.strokeStyle="white";
+		context4.fillStyle="white";
+		context4.stroke();
+		context4.fill();
+		context4.closePath();
+		//黑色半圆
+		context4.beginPath();
+		context4.arc(200,200,80,0.5*Math.PI,1.5*Math.PI,false);
+		//context4.strokeStyle="white";
+		context4.fillStyle="black";
+		context4.stroke();
+		context4.fill();
+		context4.closePath();
+		//白色小圆
+		context4.beginPath();
+		context4.arc(200,160,40,0,2*Math.PI,false);
+		context4.strokeStyle="white";
+		context4.fillStyle="white";
+		context4.stroke();
+		context4.fill();
+		context4.closePath();
+		//黑色小圆
+		context4.beginPath();
+		context4.arc(200,240,40,0,2*Math.PI,false);
+		context4.strokeStyle="black";
+		context4.fillStyle="black";
+		context4.stroke();
+		context4.fill();
+		context4.closePath();
+		//黑色小圆心
+		context4.beginPath();
+		context4.arc(200,160,5,0,2*Math.PI,false);
+		context4.strokeStyle="black";
+		context4.fillStyle="black";
+		context4.stroke();
+		context4.fill();
+		context4.closePath();
+		//白色小圆心
+		context4.beginPath();
+		context4.arc(200,240,5,0,2*Math.PI,false);
+		context4.strokeStyle="white";
+		context4.fillStyle="white";
+		context4.stroke();
+		context4.fill();
+		context4.closePath();
+		
+		
+		//矩形
+//		context5.fillRect(20,100,100,200);//默认有填充
+//		context5.strokeRect(150,100,100,200);//空心
+
+//		for(var i=0;i<50;i++){
+//			context5.beginPath();
+//			context5.globalAlpha=0.5;
+//			context5.fillStyle="rgba(255,0,0,0.5)";
+//			context5.arc(Math.random(0,400),Math.random(0,400),Math.random(5,50),0,2*Math.PI,false);
+//			context5.fillStyle="red";
+//			context5.closePath();
+//			context5.stroke();
+//		}
+	
+	
+		//生成50个随机圆
+		function Color(){
+     		this.r = Math.floor(Math.random()*255);
+     		this.g = Math.floor(Math.random()*255);
+     		this.b = Math.floor(Math.random()*255);
+     		this.color = 'rgba('+ this.r +','+ this.g +','+ this.b +',0.8)';
+  		}
+		
+		for(var i=0;i<50;i++){
+			var co=new Color();
+			context5.beginPath();
+			context5.arc(Math.random()*400+1,Math.random()*400+1,Math.random()*50+1,0,2*Math.PI,false);
+			context5.strokeStyle=co.color;
+			context5.fillStyle=co.color;
+			context5.fill();
+			context5.stroke();
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>随机圆</title>
+		<style>
+			#canvas5{
+				border-style: solid;
+				border-color: peachpuff;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas5" width="400" height="400">
+			您的浏览器不支持 canvas 元素，请更换或更新浏览器
+		</canvas>
+	</body>
+	<script>
+		var elem5=document.getElementById("canvas5");
+		var context5=elem5.getContext("2d");
+		function Color(){
+     		this.r = Math.floor(Math.random()*255);
+     		this.g = Math.floor(Math.random()*255);
+     		this.b = Math.floor(Math.random()*255);
+     		this.color = 'rgba('+ this.r +','+ this.g +','+ this.b +',0.8)';
+  		}
+		
+		for(var i=0;i<50;i++){
+			var co=new Color();
+			context5.beginPath();
+			context5.arc(Math.random()*400+1,Math.random()*400+1,Math.random()*50+1,0,2*Math.PI,false);
+			context5.strokeStyle=co.color;
+			context5.fillStyle=co.color;
+			context5.fill();
+			context5.stroke();
+		}
+	</script>
+</html>

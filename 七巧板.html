@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>七巧板</title>
+		<style>
+			#canvas1{
+				border-style: solid;
+				border-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas1" width="400" height="400">
+			您的浏览器不支持 canvas 元素，请更换或更新浏览器
+		</canvas>
+	</body>
+	<script>
+		var elem=document.getElementById("canvas1");
+		var context=elem.getContext("2d");
+		
+		context.beginPath();
+		context.moveTo(0,0);
+		context.lineTo(0,400);
+		context.lineTo(200,200);
+		context.lineTo(0,0);
+		context.fillStyle="cornflowerblue";
+		context.strokeStyle="cornflowerblue";
+		context.fill();
+		context.stroke();
+		context.closePath();
+		
+		context.beginPath();
+		context.moveTo(0,0);
+		context.lineTo(200,200);
+		context.lineTo(400,0);
+		context.lineTo(0,0);
+		context.fillStyle="greenyellow";
+		context.strokeStyle="greenyellow";
+		context.fill();
+		context.stroke();
+		context.closePath();
+		
+		context.beginPath();
+		context.moveTo(400,0);
+		context.lineTo(400,200);
+		context.lineTo(300,300);
+		context.lineTo(300,100);
+		context.lineTo(400,0);
+		context.fillStyle="deeppink";
+		context.strokeStyle="deeppink";
+		context.fill();
+		context.stroke();
+		context.closePath();
+		
+		context.beginPath();
+		context.moveTo(300,100);
+		context.lineTo(300,300);
+		context.lineTo(200,200);
+		context.lineTo(300,100);
+		context.fillStyle="yellow";
+		context.strokeStyle="yellow";
+		context.fill();
+		context.stroke();
+		context.closePath();
+		
+		context.beginPath();
+		context.moveTo(200,200);
+		context.lineTo(300,300);
+		context.lineTo(200,400);
+		context.lineTo(100,300);
+		context.lineTo(200,200);
+		context.fillStyle="mediumpurple";
+		context.strokeStyle="mediumpurple";
+		context.fill();
+		context.stroke();
+		context.closePath();
+		
+		context.beginPath();
+		context.moveTo(100,300);
+		context.lineTo(200,400);
+		context.lineTo(0,400);
+		context.lineTo(100,300);
+		context.fillStyle="pink";
+		context.strokeStyle="pink";
+		context.fill();
+		context.stroke();
+		context.closePath();
+		
+		context.beginPath();
+		context.moveTo(400,200);
+		context.lineTo(400,400);
+		context.lineTo(200,400);
+		context.lineTo(400,200);
+		context.fillStyle="sandybrown";
+		context.strokeStyle="sandybrown";
+		context.fill();
+		context.stroke();
+		context.closePath();
+	</script>
+</html>
